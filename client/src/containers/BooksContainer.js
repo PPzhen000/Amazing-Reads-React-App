@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchBooks } from '../actions/bookActions';
 
 class BooksContainer extends Component {
@@ -13,7 +13,7 @@ class BooksContainer extends Component {
   componentDidMount() {
 
   }
-  
+
   render() {
     return (
       <div className="books-container">
