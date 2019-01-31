@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-class Books  extends Component {
+class Books extends Component {
   static propTypes = {
     recipes: PropTypes.arrayOf(PropTypes.object).isRequired
   }
