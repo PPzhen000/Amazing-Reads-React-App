@@ -30,5 +30,5 @@
   "devDependencies": {
     "react-toolbox-themr": "^1.0.2",
     "redux-devtools": "^3.5.0"
-  }
+  },
 }
