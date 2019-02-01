@@ -9,14 +9,13 @@
 }
 
 
-.recipe-card-content {
-  padding: 16px;
+.book-info {
+  padding: 10px;
 }
-
 
 .book-img {
   overflow: hidden;
-  height: 80%;
+  height: 50%;
 }
 
 .book-card img {

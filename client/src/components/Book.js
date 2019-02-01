@@ -17,9 +17,9 @@ class Book extends Component {
           <img src={image_url} alt={title} />
         </div>
         <div className="book-info">
-          <h3 className="book-title">{title}</h3>
-          <h4>{author}</h4>
-          <h4>Description:</h4>
+          <h2 className="book-title">{title}</h2>
+          <h5>{author}</h5>
+          <p>Description:</p>
           <p>{description}</p>
         </div>
       </div>

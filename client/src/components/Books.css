@@ -1,0 +1,11 @@
+.book-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 580px) {
+  .book-list {
+    display: block;
+  }
+}
