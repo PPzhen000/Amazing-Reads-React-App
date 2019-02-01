@@ -4,11 +4,11 @@ import Book from './Book';
 
 class Books extends Component {
   static propTypes = {
-    recipes: PropTypes.arrayOf(PropTypes.object).isRequired
+    books: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
   render() {
-    const books = this.props.recipes.map((b,index) => (
+    const books = this.props.books.map((b,index) => (
       <Book key={index} {...b} />
     ));
 
