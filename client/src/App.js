@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import { Provider } from 'react-redux';
 import BooksContainer from './containers/BooksContainer';
-// import NewBookForm from './containers/NewBookForm';
+import NewBookForm from './containers/NewBookForm';
 import store from './store';
 import './App.css';
 
@@ -12,6 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <NavBar />
+          <NewBookForm />
           <BooksContainer />
         </div>
       </Provider>

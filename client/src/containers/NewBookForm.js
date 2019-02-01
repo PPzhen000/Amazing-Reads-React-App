@@ -36,7 +36,7 @@ class NewBookForm extends Component {
 
   render() {
     return (
-      <div className="book-form-container">
+      <div className="book-form">
         <h1>Add a Book</h1>
         <form onSubmit={this.onSubmit}>
           <div>

@@ -15,6 +15,12 @@ class BooksContainer extends Component {
     this.props.fetchBooks();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newBook) {
+      this.props.books.unshift(nextProps.newBook);
+    }
+  }
+
   render() {
     return (
       <div className="books-container">
@@ -25,7 +31,8 @@ class BooksContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  books: state.books.bookItems
+  books: state.books.bookItems,
+  newBook: state.books.bookItem
 })
 
 export default connect(mapStateToProps, { fetchBooks })(BooksContainer);
