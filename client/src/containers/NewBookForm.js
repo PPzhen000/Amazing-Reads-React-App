@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createBook } from '../actions/bookActions';
 
-class NewBookForm extends React.Component {
+class NewBookForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,67 +13,77 @@ class NewBookForm extends React.Component {
       image_url: ''
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(event) {
+  onChange(event) {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  handleSubmit(event) {
+  onSubmit(event) {
     event.preventDefault();
     // handle submit
+    const book = {
+      title: this.state.title,
+      author: this.state.author,
+      description: this.state.description,
+      image_url: this.state.image_url,
+    };
+
+    this.props.createBook(book);
   }
 
   render() {
     return (
       <div className="book-form-container">
-        <form onSubmit={this.handleSubmit}>
-
+        <h1>Add a Book</h1>
+        <form onSubmit={this.onSubmit}>
           <div>
-            <label htmlFor='book-title'>Title</label>
+            <label>Title: </label>
             <input
-              id='book-title'
               type='text'
               name='title'
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              value={this.state.title}
+            />
           </div>
 
           <div>
-            <label htmlFor='book-author'>Author</label>
+            <label>Author: </label>
             <input
-              id='book-author'
               type='text'
               name='author'
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              value={this.state.author}
+            />
           </div>
 
           <div>
-            <label htmlFor='book-description'>Description</label>
+            <label>Description: </label>
             <textarea
-              id='book-description'
               type='text'
               name='description'
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              value={this.state.description}
+            />
           </div>
 
           <div>
-            <label htmlFor='book-img'>Image Url:</label>
+            <label>Image Url: </label>
             <input
-              id='book-img'
               type='text'
               name='image_url'
-              placeholder='image url'
-              onChange={this.handleChange} />
+              onChange={this.handleChange}
+              value={this.state.image_url}
+             />
           </div>
 
-          <input type="submit" onClick={this.handleSubmit}>SAVE</input>
-
+          <button type="submit">Add Book</button>
         </form>
       </div>
     );
   }
 }
 
-export default NewBookForm;
+export default connect(null, { createBook })(NewBookForm);
