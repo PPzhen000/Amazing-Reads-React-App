@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Book.css';
 
 class Book extends Component {
   static propTypes = {
@@ -11,7 +12,7 @@ class Book extends Component {
   render() {
     const {title, author, description, image_url} = this.props;
     return (
-      <div className="book">
+      <div className="book-card">
         <div className="book-img">
           <img src={image_url} alt={title} />
         </div>
