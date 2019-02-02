@@ -1,2 +1,4 @@
 export const FETCH_BOOKS = 'FETCH_BOOKS';
+export const FETCH_BESTSELLERS = 'FETCH_BESTSELLERS';
 export const ADD_BOOKS_TO_STATE = 'ADD_BOOKS_TO_STATE';
+export const ADD_BOOK = 'ADD_BOOK';

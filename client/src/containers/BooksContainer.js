@@ -15,11 +15,11 @@ class BooksContainer extends Component {
     this.props.fetchBooks();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.newBook) {
-      this.props.books.unshift(nextProps.newBook);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.newBook) {
+  //     this.props.books.unshift(nextProps.newBook);
+  //   }
+  // }
 
   render() {
     return (

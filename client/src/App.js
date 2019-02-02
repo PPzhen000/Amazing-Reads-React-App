@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import BooksContainer from './containers/BooksContainer';
+import BestSellersContainer from './containers/BestsellersContainer';
 import NewBookForm from './containers/NewBookForm';
 import store from './store';
 import './App.css';
@@ -12,11 +13,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <NavBar />
           <Router>
             <React.Fragment>
+              <NavBar />
               <Route path="/new" component={NewBookForm} />
-              <Route path="/" component={BooksContainer} />
+              <Route exact path="/bestsellers" component={BestSellersContainer} />
+              <Route exact path="/" component={BooksContainer} />
             </React.Fragment>
           </Router>
         </div>
