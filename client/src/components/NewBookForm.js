@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/bookActions';
+import './NewBookForm.css';
 
 class NewBookForm extends Component {
   constructor(props) {
@@ -36,52 +37,55 @@ class NewBookForm extends Component {
 
   render() {
     return (
-      <div className="book-form">
+      <div>
         <h1>Add a Book</h1>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <label>Title: </label>
-            <input
-              type='text'
-              name='title'
-              onChange={this.handleChange}
-              value={this.state.title}
-            />
-          </div>
+          <div className="book-form-container">
+            <form className='book-form' onSubmit={this.onSubmit}>
+              <div className='book-form-line'>
+                <label>Title:</label>
+                <input
+                  type='text'
+                  name='title'
+                  onChange={this.handleChange}
+                  value={this.state.title}
+                />
+              </div>
 
-          <div>
-            <label>Author: </label>
-            <input
-              type='text'
-              name='author'
-              onChange={this.handleChange}
-              value={this.state.author}
-            />
-          </div>
+              <div className='book-form-line'>
+                <label>Author:</label>
+                <input
+                  type='text'
+                  name='author'
+                  onChange={this.handleChange}
+                  value={this.state.author}
+                />
+              </div>
 
-          <div>
-            <label>Description: </label>
-            <textarea
-              type='text'
-              name='description'
-              onChange={this.handleChange}
-              value={this.state.description}
-            />
-          </div>
+              <div className='book-form-line'>
+                <label>Description:</label>
+                <textarea
+                  type='text'
+                  name='description'
+                  onChange={this.handleChange}
+                  value={this.state.description}
+                />
+              </div>
 
-          <div>
-            <label>Image Url: </label>
-            <input
-              type='text'
-              name='image_url'
-              onChange={this.handleChange}
-              value={this.state.image_url}
-             />
-          </div>
+              <div className='book-form-line'>
+                <label>Image Url:</label>
+                <input
+                  type='text'
+                  name='image_url'
+                  onChange={this.handleChange}
+                  value={this.state.image_url}
+                 />
+              </div>
 
-          <button type="submit">Add Book</button>
-        </form>
+              <button className='button' type="submit">Add Book</button>
+            </form>
+          </div>
       </div>
+
     );
   }
 }

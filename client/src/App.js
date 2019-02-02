@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import BooksContainer from './containers/BooksContainer';
 import BestSellersContainer from './containers/BestsellersContainer';
-import NewBookForm from './containers/NewBookForm';
+import NewBookForm from './components/NewBookForm';
 import store from './store';
 import './App.css';
 
