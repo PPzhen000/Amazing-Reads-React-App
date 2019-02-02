@@ -13,6 +13,12 @@ class BooksController < ApplicationController
     render json: @book
   end
 
+  def nyt_bestseller
+    @books = get_nyt_bestseller
+
+    render json: @books
+  end
+
   # POST /books
   def create
     @book = Book.new(book_params)
@@ -48,4 +54,13 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :author, :description, :image_url)
     end
+
+    def get_nyt_bestseller
+      response = RestClient::Request.execute(
+        :method => "get",
+        :url => "https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key="+ENV['API_KEY']
+      )
+      data = JSON.parse(response)
+    end
+
 end
