@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBestsellers } from '../actions/bookActions';
 import Books from '../components/Books';
+import { Link } from 'react-router-dom'
 
 class BestSellersContainer extends Component {
 
@@ -14,8 +15,8 @@ class BestSellersContainer extends Component {
       <div key={book.rank}>
         <div>
           <img src={book.book_image} alt={book.title} />
-          <h2>{book.title}</h2>
-          <h5>By {book.author}</h5>
+          <h2>{book.title}</h2> <h5>By {book.author}</h5>
+          <a target="_blank" href={book.amazon_product_url}>Buy Book</a>
         </div>
       </div>
     ))
