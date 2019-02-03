@@ -1,8 +1,8 @@
 // import axios from 'axios';
-import { FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from '../actions/types';
+import { FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from './types';
 
 export const fetchBooks = () => dispatch => {
-  fetch('http://localhost:3001/books')
+  fetch('http://localhost:3001/api/books')
     .then(res => res.json())
     .then(books =>
       dispatch({
@@ -13,7 +13,7 @@ export const fetchBooks = () => dispatch => {
 };
 
 export const fetchBestsellers = () => dispatch => {
-  fetch('http://localhost:3001/nyt_bestseller')
+  fetch('http://localhost:3001/api/nyt_bestseller')
     .then(res => res.json())
     .then(books => (books.results.books))
     .then(bestsellers =>
@@ -24,34 +24,32 @@ export const fetchBestsellers = () => dispatch => {
     );
 };
 
-export const createBook = bookData => dispatch => {
-  fetch('http://localhost:3001/books', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(bookData)
-  })
-    .then(res => res.json())
-    .then(book =>
-      dispatch({
-        type: ADD_BOOK,
-        payload: book
-      })
-    );
+export const createBook = book => dispatch => {
+  // fetch('http://localhost:3001/api/books', {
+  //   method: 'POST',
+  //   headers: {
+  //     'content-type': 'application/json'
+  //   },
+  //   body: JSON.stringify(book)
+  // })
+  //   .then(res => res.json())
+  //   .then(book =>
+  //     dispatch({
+  //       type: ADD_BOOK,
+  //       payload: book
+  //     })
+  //   );
 };
 
 export const deleteBook = id => dispatch => {
-  fetch(`http://localhost:3001/books/${id}`, {
+  fetch(`http://localhost:3001/api/books/${id}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json'
-    },
-    body: JSON.stringify(bookData)
+    }
   })
     .then(res => res.json())
-    .then(data =>
-      console.log(data)
+    .then(book =>
       dispatch({
         type: DELETE_BOOK,
         payload: book
