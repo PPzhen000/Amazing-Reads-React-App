@@ -5,12 +5,14 @@ import './Books.css';
 
 class Books extends Component {
   static propTypes = {
-    books: PropTypes.arrayOf(PropTypes.object).isRequired
+    books: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onDelete: PropTypes.func.isRequired
   }
 
   render() {
-    const books = this.props.books.map((b,index) => (
-      <Book key={index} {...b} />
+    const {onDelete} = this.props;
+    const books = this.props.books.map( b => (
+      <Book key={b.id} {...b} onDelete={onDelete}/>
     ));
 
     return (

@@ -25,20 +25,20 @@ export const fetchBestsellers = () => dispatch => {
 };
 
 export const createBook = book => dispatch => {
-  // fetch('http://localhost:3001/api/books', {
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': 'application/json'
-  //   },
-  //   body: JSON.stringify(book)
-  // })
-  //   .then(res => res.json())
-  //   .then(book =>
-  //     dispatch({
-  //       type: ADD_BOOK,
-  //       payload: book
-  //     })
-  //   );
+  fetch('http://localhost:3001/api/books', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(book)
+  })
+    .then(res => res.json())
+    .then(book =>
+      dispatch({
+        type: ADD_BOOK,
+        payload: book
+      })
+    );
 };
 
 export const deleteBook = id => dispatch => {
@@ -54,5 +54,5 @@ export const deleteBook = id => dispatch => {
         type: DELETE_BOOK,
         payload: book
       })
-    );
+    ).catch(err => err);
 }

@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchBooks } from '../actions/bookActions';
+import { fetchBooks, deleteBook } from '../actions/bookActions';
 import Books from '../components/Books';
 
 class BooksContainer extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     books: []
-  //   }
-  // }
-
   componentDidMount() {
     this.props.fetchBooks();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.newBook) {
-  //     this.props.books.unshift(nextProps.newBook);
-  //   }
-  // }
-
   render() {
     return (
       <div className="books-container">
-        <Books books={this.props.books}/>
+        <Books books={this.props.books} onDelete={this.props.deleteBook} />
       </div>
     )
   }
@@ -35,4 +23,9 @@ const mapStateToProps = state => ({
   newBook: state.books.bookItem
 })
 
-export default connect(mapStateToProps, { fetchBooks })(BooksContainer);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchBooks,
+  deleteBook
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);
