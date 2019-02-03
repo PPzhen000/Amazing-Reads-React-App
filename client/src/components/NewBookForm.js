@@ -33,7 +33,6 @@ class NewBookForm extends Component {
     };
 
     this.props.createBook(book);
-    debugger
   }
 
   render() {

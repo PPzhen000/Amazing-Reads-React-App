@@ -13,6 +13,7 @@ class Book extends Component {
     const {title, author, description, image_url} = this.props;
     return (
       <div className="book-card">
+        <button className="delete-button">X</button>
         <div className="book-img">
           <img src={image_url} alt={title} />
         </div>
