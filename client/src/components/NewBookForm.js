@@ -33,6 +33,7 @@ class NewBookForm extends Component {
     };
 
     this.props.createBook(book);
+    debugger
   }
 
   render() {
@@ -46,7 +47,7 @@ class NewBookForm extends Component {
                 <input
                   type='text'
                   name='title'
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                   value={this.state.title}
                 />
               </div>
@@ -56,7 +57,7 @@ class NewBookForm extends Component {
                 <input
                   type='text'
                   name='author'
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                   value={this.state.author}
                 />
               </div>
@@ -66,7 +67,7 @@ class NewBookForm extends Component {
                 <textarea
                   type='text'
                   name='description'
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                   value={this.state.description}
                 />
               </div>
@@ -76,7 +77,7 @@ class NewBookForm extends Component {
                 <input
                   type='text'
                   name='image_url'
-                  onChange={this.handleChange}
+                  onChange={this.onChange}
                   value={this.state.image_url}
                  />
               </div>
