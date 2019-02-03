@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK } from '../actions/types';
+import { FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from '../actions/types';
 
 export const fetchBooks = () => dispatch => {
   fetch('http://localhost:3001/books')
@@ -41,14 +41,20 @@ export const createBook = bookData => dispatch => {
     );
 };
 
-// export const deleteBook = id => dispatch => {
-//   fetch(`http://localhost:3001/books/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'content-type': 'application/json'
-//     },
-//     body: JSON.stringify(bookData)
-//   })
-//     .then(res => res.json())
-//     .then(data => console.log(data))
-// }
+export const deleteBook = id => dispatch => {
+  fetch(`http://localhost:3001/books/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(bookData)
+  })
+    .then(res => res.json())
+    .then(data =>
+      console.log(data)
+      dispatch({
+        type: DELETE_BOOK,
+        payload: book
+      })
+    );
+}
