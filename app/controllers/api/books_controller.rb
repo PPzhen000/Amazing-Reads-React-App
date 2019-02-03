@@ -1,3 +1,4 @@
+require 'pry'
 class Api::BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
 
@@ -41,11 +42,12 @@ class Api::BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
+    # binding.pry
     @book.destroy
       if @book.destroy
-        head :no_content, status: :ok
+        render json: @book
       else
-        render json: @book.errors, status: :unprocessable_entity
+        render json: { message: "Unable to delete this book" }, status: 400
       end
   end
 

@@ -54,5 +54,5 @@ export const deleteBook = id => dispatch => {
         type: DELETE_BOOK,
         payload: book
       })
-    ).catch(err => err);
+    ).catch(err => console.log(err));
 }
