@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import BooksContainer from './containers/BooksContainer';
 import BestSellersContainer from './containers/BestsellersContainer';
+import BookPage from './containers/BookPage';
+
 import NewBookForm from './components/NewBookForm';
 import store from './store';
 import './App.css';
@@ -19,6 +21,7 @@ class App extends Component {
               <Route path="/new" component={NewBookForm} />
               <Route exact path="/bestsellers" component={BestSellersContainer} />
               <Route exact path="/" component={BooksContainer} />
+              <Route exact path='/books/:id' component={ BookPage } />
             </React.Fragment>
           </Router>
         </div>
