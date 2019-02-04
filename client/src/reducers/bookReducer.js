@@ -1,4 +1,4 @@
-import { FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from '../actions/types';
+import { FETCH_BOOK, FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from '../actions/types';
 
 const initialState = {
   bookItems: [], //all
@@ -14,6 +14,8 @@ export default function bookReducer(state = initialState, action) {
       const bookItems = state.bookItems.filter(book => book.id !== action.payload.id);
       // debugger
       return { ...state, bookItems };
+    case FETCH_BOOK:
+      return { ...state, bookItem: action.payload };
     case FETCH_BOOKS:
       return { ...state, bookItems: action.payload };
     case FETCH_BESTSELLERS:
