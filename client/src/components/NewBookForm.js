@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/bookActions';
 import './NewBookForm.css';
@@ -33,6 +32,8 @@ class NewBookForm extends Component {
     };
 
     this.props.createBook(book);
+
+    this.props.history.push('/')
   }
 
   render() {
