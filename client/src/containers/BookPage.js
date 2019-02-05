@@ -1,33 +1,43 @@
-import React, {PropTypes} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
 
-class BookPage extends React.Component {
+import { fetchBook } from '../actions/bookActions';
+
+class BookPage extends Component {
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    this.props.fetchBook(id);
+  }
+
   render() {
+    let style = {
+      padding: '10px',
+    };
+
     return (
-      <div>
+      <div style={style}>
         <div className="book-img">
-          <img src={image_url} alt={title} />
+          <img src={this.props.book.image_url} alt={this.props.book.title} />
         </div>
         <h1>{this.props.book.title}</h1>
-        <p>Author: {this.props.book.author}</p>
+        <h2>{this.props.book.author}</h2>
         <p>Description: {this.props.book.description}</p>
+        <Link to='/'>Back</Link>
       </div>
     );
   }
 };
 
-CatPage.propTypes = {
-  cat: PropTypes.object.isRequired,
+BookPage.propTypes = {
+  book: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state, ownProps) {
-  let book = {title: '', author: '', description: '', image_url: ''};
-  const bookId = ownProps.params.id;
-  if (state.books.length > 0) {
-    book = Object.assign({}, state.books.find(book => book.id ==
-      id)
-  }
-  return {book: book};
-};
+const mapStateToProps = state => ({
+  book: state.books.bookItem,
+})
 
-export default connect(mapStateToProps)(BookPage);
+export default connect(mapStateToProps, { fetchBook })(BookPage);

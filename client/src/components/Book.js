@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
+import { Link } from 'react-router-dom'
 
 class Book extends Component {
   static propTypes = {
@@ -16,14 +17,14 @@ class Book extends Component {
     return (
       <div className="book-card">
         <button className="delete-button" onClick={() => onDelete(id)}>X</button>
-        <div className="book-img">
-          <img src={image_url} alt={title} />
-        </div>
+        <Link to={`/books/${id}`}>
+          <div className="book-img">
+            <img src={image_url} alt={title} />
+          </div>
+        </Link>
         <div className="book-info">
           <h2 className="book-title">{title}</h2>
           <h5>{author}</h5>
-          <p>Description:</p>
-          <p>{description}</p>
         </div>
       </div>
     )
