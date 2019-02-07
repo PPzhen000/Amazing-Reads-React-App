@@ -14,8 +14,14 @@ class Api::BooksController < ApplicationController
     render json: @book
   end
 
-  def nyt_bestseller
-    @books = get_nyt_bestseller
+  def nyt_fiction_bestseller
+    @books = get_nyt_fiction_bestseller
+
+    render json: @books
+  end
+
+  def nyt_nonfiction_bestseller
+    @books = get_nyt_fiction_bestseller
 
     render json: @books
   end
@@ -62,7 +68,7 @@ class Api::BooksController < ApplicationController
       params.require(:book).permit(:title, :author, :description, :image_url)
     end
 
-    def get_nyt_bestseller
+    def get_nyt_fiction_bestseller
       response = RestClient::Request.execute(
         :method => "get",
         :url => "https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key="+ENV['API_KEY']
@@ -70,4 +76,11 @@ class Api::BooksController < ApplicationController
       data = JSON.parse(response)
     end
 
+    def get_nyt_nonfiction_bestseller
+      response = RestClient::Request.execute(
+        :method => "get",
+        :url => "https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-nonfiction.json?api-key="+ENV['API_KEY']
+      )
+      data = JSON.parse(response)
+    end
 end

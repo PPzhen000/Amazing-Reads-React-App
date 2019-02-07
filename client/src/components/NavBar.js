@@ -10,7 +10,6 @@ class Navbar extends Component {
         <h2><a>Amazing Reads</a></h2>
         <nav>
           <li><Link to='/'>Home</Link></li>
-          <li><a>Must Read</a></li>
           <li><Link to='/bestsellers'>Bestsellers</Link></li>
           <li><Link to='/new'>New Book</Link></li>
         </nav>

@@ -11,7 +11,7 @@ class BestSellersContainer extends Component {
   }
 
   render() {
-    const bestsellers = this.props.books.map(book => (
+    const fiction = this.props.books.map(book => (
       <div key={book.rank}>
         <div>
           <img src={book.book_image} alt={book.title} />
@@ -25,7 +25,7 @@ class BestSellersContainer extends Component {
         <h2>New York Times Best Sellers List</h2>
         <h3>Combined Print & E-Book best sellers</h3>
         <h3>Fiction | Nonfiction</h3>
-        {bestsellers}
+        {fiction}
       </div>
     )
   }
