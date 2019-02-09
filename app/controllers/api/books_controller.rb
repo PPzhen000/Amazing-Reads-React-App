@@ -21,7 +21,7 @@ class Api::BooksController < ApplicationController
   end
 
   def nyt_nonfiction_bestseller
-    @books = get_nyt_fiction_bestseller
+    @books = get_nyt_nonfiction_bestseller
 
     render json: @books
   end

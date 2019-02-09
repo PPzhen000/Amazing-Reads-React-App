@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { fetchNonfictionBestsellers } from '../actions/bookActions';
 
 class NonfictionBestsellers extends Component {
@@ -20,6 +22,7 @@ class NonfictionBestsellers extends Component {
     ))
     return (
       <div className="books-container">
+      <h3><Link to={`/bestsellers/fiction`}>Fiction</Link> | Nonfiction</h3>
         {nonfiction}
       </div>
     )
