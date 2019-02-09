@@ -1,5 +1,4 @@
-// import axios from 'axios';
-import { FETCH_BOOK, FETCH_BOOKS, FETCH_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from './types';
+import { FETCH_BOOK, FETCH_BOOKS, FETCH_FICTION_BESTSELLERS, FETCH_NONFICTION_BESTSELLERS, ADD_BOOK, DELETE_BOOK } from './types';
 
 export const fetchBooks = () => dispatch => {
   fetch('http://localhost:3001/api/books')
@@ -23,13 +22,25 @@ export const fetchBook = id => dispatch => {
     ).catch(err => console.log(err));
 }
 
-export const fetchBestsellers = () => dispatch => {
-  fetch('http://localhost:3001/api/nyt_bestseller')
+export const fetchFictionBestsellers = () => dispatch => {
+  fetch('http://localhost:3001/api/nyt_fiction_bestseller')
     .then(res => res.json())
     .then(books => (books.results.books))
     .then(bestsellers =>
       dispatch({
-        type: FETCH_BESTSELLERS,
+        type: FETCH_FICTION_BESTSELLERS,
+        payload: bestsellers
+      })
+    ).catch(err => console.log(err));
+};
+
+export const fetchNonfictionBestsellers = () => dispatch => {
+  fetch('http://localhost:3001/api/nyt_nonfiction_bestseller')
+    .then(res => res.json())
+    .then(books => (books.results.books))
+    .then(bestsellers =>
+      dispatch({
+        type: FETCH_NONFICTION_BESTSELLERS,
         payload: bestsellers
       })
     ).catch(err => console.log(err));

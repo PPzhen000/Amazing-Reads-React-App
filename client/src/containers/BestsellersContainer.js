@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBestsellers } from '../actions/bookActions';
+import { fetchFictionBestsellers } from '../actions/bookActions';
 import Books from '../components/Books';
 import { Link } from 'react-router-dom'
 
 class BestSellersContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchBestsellers();
+    this.props.fetchFictionBestsellers();
   }
 
   render() {
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
   books: state.books.BestsellerItems,
 })
 
-export default connect(mapStateToProps, { fetchBestsellers })(BestSellersContainer);
+export default connect(mapStateToProps, { fetchFictionBestsellers })(BestSellersContainer);
