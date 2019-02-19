@@ -12,6 +12,7 @@ class BooksContainer extends Component {
   render() {
     return (
       <div className="books-container">
+        <h1>Your Library</h1>
         <Books books={this.props.books} onDelete={this.props.deleteBook} />
       </div>
     )
