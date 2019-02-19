@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate
+  # before_action :authenticate
 
   def logged_in?
     !!current_user
@@ -15,8 +15,7 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate
-    render json: {error: "unauthorized"}, status: 401
-      unless logged_in?
+    render json: {error: "unauthorized"}, status: 401 unless logged_in?
   end
 
   private
@@ -34,5 +33,5 @@ class ApplicationController < ActionController::API
       !!request.env.fetch("HTTP_AUTHORIZATION",
         "").scan(/Bearer/).flatten.first
     end
-    
+
 end
