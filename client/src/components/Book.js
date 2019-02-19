@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LikeButton from '../containers/LikeButton';
 import './Book.css';
 import { Link } from 'react-router-dom'
 
@@ -26,7 +27,7 @@ class Book extends Component {
           {<h2 className="book-title">{title}</h2>}
           <h5>{author}</h5>
         </div>
-        <button className="vote">Like</button>
+        <LikeButton />
       </div>
     )
   }
