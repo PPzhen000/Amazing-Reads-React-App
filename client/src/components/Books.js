@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 import './Books.css';
 
-const Books = ( { books, onDelete } ) => (
-  <div className="book-list">
-    { books.map( b => (
-      <Book key={b.id} {...b} onDelete={onDelete}/>
-    )) }
-  </div>
-)
+const Books = ( { books, onDelete } ) => {
+  const sortedBooks = books;
+  console.log(sortedBooks);
+  return (
+    <div className="book-list">
+      { sortedBooks.map( b => (
+        <Book key={b.id} {...b} onDelete={onDelete}/>
+      )) }
+    </div>
+  )
+}
 
 Books.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
