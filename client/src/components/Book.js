@@ -10,7 +10,7 @@ class Book extends Component {
     author: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onDelete: PropTypes.func.isRequired,
   }
   render() {
     const { id, title, author, description, image_url, onDelete } = this.props;
@@ -23,9 +23,10 @@ class Book extends Component {
           </div>
         </Link>
         <div className="book-info">
-          <h2 className="book-title">{title}</h2>
+          {<h2 className="book-title">{title}</h2>}
           <h5>{author}</h5>
         </div>
+        <button className="vote">Like</button>
       </div>
     )
   }
