@@ -32,7 +32,7 @@ Book.create(title: "Can't Hurt Me",
             image_url: "https://m.media-amazon.com/images/I/81eO3s9VJ4L._SX140_.jpg")
 
 Book.create(title: "Educated",
-            author: " TARA WESTOVER",
+            author: "TARA WESTOVER",
             description: "48 WEEKS ON THE LIST",
             image_url: "https://m.media-amazon.com/images/I/81PoJHSAznL._SX140_.jpg")
 
