@@ -19,25 +19,14 @@ class BooksContainer extends Component {
   }
 
   render() {
-    const books = this.props.books;
-    // console.log(books);
-    const sortedBook =
-      [...books].sort(function(a, b){
-        if (a.author > b.author) {
-          return 1;
-        }
-        if (a.author < b.author) {
-          return -1;
-        }
-          return 0;
-        })
-    // console.log(this.state);
+  
     return (
       <div className="books-container">
         <h1>Your Library</h1>
         <button onClick={this.sortByAuthor}>Sort by Author</button>
-        <Books books={this.state.sortByAuthor? sortedBook : books}
-               onDelete={this.props.deleteBook} />
+        <Books books={this.props.books}
+               onDelete={this.props.deleteBook}
+               sortedByAuthor={this.state.sortedByAuthor}/>
       </div>
     )
   }
@@ -54,14 +43,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);
-
-// const sortedBook = {this.props.books}
-// sortedBook.sort(function(a, b){
-// if (a.author > b.author) {
-// return 1;
-// }
-// if (a.author < b.author) {
-// return -1;
-// }
-// return 0;
-// })
